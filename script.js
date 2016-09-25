@@ -1,16 +1,5 @@
 // script.js
 
-function handleOutboundLinkClicks(event) {
-  ga('send', 'event', {
-    eventCategory: 'Outbound Link',
-    eventAction: 'click',
-    eventLabel: event.target.href
-  });
-  console.log("Finished");
-}
-
-$('#userclick').click(function(){ handleOutboundLinkClicks(); return false; });
-
 
 // create the module and name it app
 var app = angular.module('app', ['keys']);
@@ -50,6 +39,7 @@ app
     } 
     $scope.$apply();
     console.log($scope.users);
+    ga('send', 'event', 'userlist', 'Click', 'userlist');
   };
   ParseSvc.getUsers($scope.sucessCallback);
 }])
